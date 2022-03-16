@@ -1,0 +1,40 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+using namespace std;
+
+int main()
+{
+
+    int num;
+
+    while(cin>>num)
+    {
+        int save = num;
+        
+       if(num == 0)
+       {
+           break;
+       } 
+
+       else if(num>=101)
+       {
+           cout<<"f91("<<save<<") = "<<num-10<<endl;
+       }
+       else if(num<=100)
+       {
+
+
+            cout<<"f91("<<save<<") = 91"<<endl;
+       }
+       
+
+
+
+
+    }
+
+    return 0;
+}

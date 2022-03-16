@@ -1,0 +1,74 @@
+#include <iostream>
+#include <vector>
+#include <sstream>
+#include <algorithm>
+using namespace std;
+
+
+int main()
+{
+    int hi;
+    cin>>hi;
+    while (hi--)
+        {
+    int num,bknum,save=0;
+    int savereverse=0,sa=0,sav=0;
+    int cal=0;
+    int rev,revnum=0;
+            cin>>num;
+
+    bknum = num;
+    while(bknum!=0)
+    {
+        rev = bknum%10;
+        revnum = revnum * 10 + rev;
+        bknum = bknum / 10;
+    }
+
+
+    save = num +revnum;
+    sa = save;
+
+    while(sa!=0)
+    {
+        sav = sa%10;
+        savereverse = savereverse * 10 + sav;
+        sa = sa / 10;
+    }
+        cal ++;
+
+    while(save!=savereverse)
+    {
+        num = save;
+        bknum = save;
+        revnum = 0;
+        while(bknum!=0)
+            {
+                rev = bknum%10;
+                revnum = revnum * 10 + rev;
+                bknum = bknum / 10;
+            }
+        save = revnum + num;
+        sa = save;
+        savereverse =0;
+        while(sa!=0)
+        {
+            sav = sa%10;
+            savereverse = savereverse * 10 + sav;
+            sa = sa / 10;
+        }
+        cal++;
+        }
+
+
+    cout<<cal<<" "<<save<<endl;
+
+    save = 0;
+
+
+
+        }
+
+
+    return 0;
+}

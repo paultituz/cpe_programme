@@ -1,0 +1,43 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+using namespace std;
+
+int main()
+{
+    int cal=0;
+    string in;
+
+    while(getline(cin, in))
+    {
+
+    ostringstream ss ("");
+
+    for(int i = 0; i<in.size();i++)
+    {
+       if(in[i]=='"')
+        {
+            if(cal==0)
+            {
+                ss<<"``";
+                cal=1;
+            }
+            else if(cal==1)
+            {
+                ss<<"''";
+                cal=0;
+            }
+        }
+        else
+        {
+            ss<<in[i];
+        }
+
+    }
+
+    cout<<ss.str()<<endl;
+    }
+
+    return 0;
+}

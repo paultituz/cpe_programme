@@ -1,0 +1,56 @@
+//uva 948
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    int num;
+    int fib[40]={0,1};
+    
+    for(int i =2;i<40 ;i++)
+        {
+            fib[i] = fib[i-2]+fib[i-1];
+        }
+        
+    cin>>num;
+    while(num--)
+    {
+        int sig=0,input,pr;
+        vector<int> save ;
+        cin>>input;
+        pr = input;
+        
+       for(int i = 39; i>=1;i--)
+       {
+           if(input>=fib[i]&&sig==0)
+           {
+                input = input - fib[i];
+                sig = 1;
+                save.push_back(1);
+           }
+           
+           else if(input>=fib[i]&&sig==1)
+           {
+                input = input - fib[i];
+                save.push_back(1);
+           }
+           else if (input<fib[i]&&sig==1)
+           {
+               save.push_back(0);
+           }
+           else if (input == 1==fib[i]){break;}
+       }
+       cout<<pr<<" = ";
+       
+       for(int i =0; i<save.size()-1;i++)
+       {
+           cout<<save[i];
+       }
+       
+       cout<<" (fib)"<<endl;
+    }
+
+    return 0;
+}
