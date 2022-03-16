@@ -1,0 +1,74 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+#include <string>
+#include <cmath>
+#include <iomanip>
+//UVA10193 - All You Need Is Love
+using namespace std;
+
+
+int main()
+{
+    int a;
+    cin>>a;
+    int cal=1;
+
+    while(a--)
+    {
+        string s1,s2;
+        int s3=0,s4=0;
+
+        cin>>s1;
+        cin>>s2;
+
+        int ss1=0;
+        int ss2=0;
+
+        for(int i=s1.size()-1;i>=0;i--)
+        {
+            s3=s3+((s1[i]-'0')*pow(2,ss1));
+            ss1++;
+        }
+
+        for(int i=s2.size()-1;i>=0;i--)
+        {
+            s4 = s4+((s2[i]-'0')*pow(2,ss2));
+            ss2++;
+        }
+
+        int big=0;
+
+
+        while(s3!=0&&s4!=0)
+        {
+            if(s3>s4)
+            {
+            s3 = s3%s4;
+            }
+            else if (s3<s4)
+            {
+            s4 = s4%s3;
+            }
+        }
+
+        if(s3>s4){big=s3;}
+        else if (s3<s4){big=s4;}
+
+        if(big==1)
+        {
+             cout<<"Pair #"<<cal<<": Love is not all you need!"<<endl;
+        }
+
+        else
+        {
+           cout<<"Pair #"<<cal<<": All you need is love!"<<endl;
+        }
+
+        cal++;
+    }
+
+    return 0;
+}

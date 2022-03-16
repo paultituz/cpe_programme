@@ -1,0 +1,55 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+#include <string>
+#include <cmath>
+//UVA10038 - Jolly Jumpers
+using namespace std;
+
+int main()
+{
+    int intime;
+    while(cin>>intime)
+    {
+        vector<int>intt;
+        vector<int>save;
+        int cal=0;
+        for(int i=0;i<intime;i++)
+        {
+            int a;
+            cin>>a;
+            intt.push_back(a);
+        }
+
+        for(int i=0;i<intt.size()-1;i++)
+        {
+            int b;
+            b=abs(intt[i+1]-intt[i]);
+            save.push_back(b);
+        }
+
+        sort(save.begin(),save.end());
+
+        for(int i=0;i<save.size()-1;i++)
+        {
+            if(save[i]!=i+1)
+            {
+                cal=-1;
+               break;
+            }
+        }
+
+        if(cal==0)
+        {
+            cout<<"Jolly"<<endl;
+        }
+        else if (cal==-1)
+        {
+            cout<<"Not jolly"<<endl;
+        }
+    }
+
+    return 0;
+}

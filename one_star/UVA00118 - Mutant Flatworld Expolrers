@@ -1,0 +1,114 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+//UVA00118 - Mutant Flatworld Expolrers
+using namespace std;
+
+int main()
+{
+    int drop[50][50];
+    int a,b;
+    cin>>a>>b;
+    int x,y;
+    int lo;
+    char roteation;
+    while(cin>>x>>y>>roteation)
+    {
+        string mele;
+        lo=1;
+        int face;// N=1 e=2 s=3 w=4
+        if(roteation=='N'){face=1;}
+        if(roteation=='S'){face=3;}
+        if(roteation=='E'){face=2;}
+        if(roteation=='W'){face=4;}
+
+        cin>>mele;
+        for(int i=0;i<mele.size();i++)
+        {
+            if(mele[i]=='L')
+            {
+                if(face==1){face=4;}
+                else if(face==2){face=1;}
+                else if(face==3){face=2;}
+                else if(face==4){face=3;}
+            }
+            if(mele[i]=='R')
+            {
+                if(face==4){face=1;}
+                else if(face==1){face=2;}
+                else if(face==2){face=3;}
+                else if(face==3){face=4;}
+            }
+            if(mele[i]=='F')
+            {
+                if(face==1)
+                {
+
+                if(y+1<=b){y=y+1;}////////////
+                else if (drop[x][y]==1){}
+                else if(y+1>b){lo=0;drop[x][y]=1;break;}
+
+                }
+
+                else if(face==2)
+                {
+
+                if (x+1<=a){x=x+1;}
+                else if (drop[x][y]==1){}
+                else if(x+1>a){lo=0;drop[x][y]=1;break;}
+
+                }
+
+
+                else if(face==3)
+                {
+
+                if(y-1>=0){y=y-1;}
+                else if (drop[x][y]==1){}
+                else if(y-1<0){lo=0;drop[x][y]=1;break;}
+
+                }
+
+
+                else if(face==4)
+                {
+
+                if(x-1>=0){x=x-1;}
+                else if (drop[x][y]==1){}
+                else if(x-1<0){lo=0;drop[x][y]=1;break;}
+
+                }
+
+            }
+        }
+
+
+        cout<<x<<" "<<y<<" ";
+        if(face==1&&lo==0){cout<<"N LOST"<<endl;}
+        else if(face==1){cout<<"N"<<endl;}
+
+        if(face==2&&lo==0){cout<<"E LOST"<<endl;}
+        else if(face==2){cout<<"E"<<endl;}
+
+
+        if(face==3&&lo==0){cout<<"S LOST"<<endl;}
+        if(face==3){cout<<"S"<<endl;}
+
+        if(face==4&&lo==0){cout<<"W LOST"<<endl;}
+        if(face==4){cout<<"W"<<endl;}
+
+        lo=1;
+        face=0;
+        x=0;y=0;
+        mele.clear();
+    }
+
+
+
+
+
+
+    return 0;
+}

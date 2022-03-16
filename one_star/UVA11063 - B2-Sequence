@@ -1,0 +1,77 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+#include <string>
+#include <cmath>
+#include <iomanip>
+#include <map>
+//UVA11063 - B2-Sequence
+using namespace std;
+
+
+int main()
+{
+    int a;
+    int casetime=1;
+    while(cin>>a)
+    {
+        vector<int>asave;
+        vector<int>bsave;
+        int cal=-1;
+        int cal2=-1;
+
+        for(int i=0;i<a;i++)
+        {
+            int b;
+            cin>>b;
+            asave.push_back(b);
+        }
+
+        for(int i=0;i<a-1;i++)
+        {
+            if(asave[i]>asave[i+1]||asave[i]<0)
+            {
+                cal2=1;
+                break;
+            }
+        }
+
+        for(int i=0;i<a;i++)
+        {
+            for(int j=i;j<a;j++)
+            {
+                int c = asave[i]+asave[j];
+                bsave.push_back(c);
+            }
+        }
+
+        sort(bsave.begin(),bsave.end());
+
+        for(int i=0;i<bsave.size()-1;i++)
+        {
+            if(bsave[i]==bsave[i+1])
+            {
+                cal=1;
+                break;
+            }
+        }
+
+        //cout<<cal<<" "<<cal2<<endl;
+
+        if(cal==1||cal2==1)
+        {
+            cout<<"Case #"<<casetime<<": It is not a B2-Sequence."<<endl;
+        }
+        else
+        {
+            cout<<"Case #"<<casetime<<": It is a B2-Sequence."<<endl;
+        }
+        casetime++;
+    }
+
+    return 0;
+
+
+}

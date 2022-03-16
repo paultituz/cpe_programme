@@ -1,0 +1,56 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+#include <string>
+#include <cmath>
+#include <iomanip>
+#include <map>
+//UVA10783 - Odd Sum
+using namespace std;
+
+
+int main()
+{
+    int in;
+    cin>>in;
+    int t=1;
+
+    while(in--)
+    {
+        int a=0,b=0;
+        int cal=0;
+        cin>>a>>b;
+
+        if(a>=b)
+        {
+            for(int i=b;i<=a;i++)
+            {
+                if(i%2!=0)
+                {
+                    cal=cal+i;
+                }
+            }
+        }
+        else if(a<b)
+        {
+            for(int i=a;i<=b;i++)
+            {
+                if(i%2!=0)
+                {
+                    cal=cal+i;
+                }
+            }
+        }
+
+
+        cout<<"Case "<<t<<": "<<cal<<endl;
+        t++;
+
+    }
+
+
+    return 0;
+
+}

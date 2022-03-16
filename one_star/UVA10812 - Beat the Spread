@@ -1,0 +1,49 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+#include <string>
+#include <cmath>
+#include <iomanip>
+#include <map>
+//UVA10812 - Beat the Spread!
+using namespace std;
+
+
+int main()
+{
+    int in;
+    cin>>in;
+    while(in--)
+    {
+        unsigned int s,d;
+        int left,right;
+
+        cin>>s>>d;
+
+
+        right= (s-d)/2;
+        left = s-right;
+
+
+        if(left>=0&&right>=0&&left+right==s&&abs(left-right)==d)
+        {
+            cout<<left<<" "<<right<<endl;
+        }
+
+        else
+        {
+            cout<<"impossible"<<endl;
+        }
+
+
+
+
+
+    }
+
+
+    return 0;
+
+}

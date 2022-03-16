@@ -1,0 +1,35 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+#include <string>
+#include <cmath>
+#include <iomanip>
+//UVA10056 - What is the Probability?
+using namespace std;
+
+int main()
+{
+    int s;
+    cin>>s;
+
+    while(s--)
+    {
+        int n;
+        double p;
+        int i;
+        double sum;
+
+        cin>>n>>p>>i;
+
+        double a = pow(1.0-p,i-1)*p;
+        double b = pow(1.0-p,n);
+
+        cout<<fixed<<setprecision(4)<<a/(1.0-b)<<endl;
+    }
+
+
+
+    return 0;ws
+}

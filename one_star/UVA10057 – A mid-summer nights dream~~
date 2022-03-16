@@ -1,0 +1,49 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+#include <string>
+#include <cmath>
+#include <iomanip>
+//UVA10057 – A mid-summer nights dream
+using namespace std;
+
+int main()
+{
+    int in;
+
+    while(cin>>in)
+    {
+        vector<int> save;
+        int mid,mid1,mid2;
+        int cal=0;
+
+        for(int i=0;i<in;i++)
+        {
+            int a;
+            cin>>a;
+            save.push_back(a);
+        }
+
+        sort(save.begin(),save.end());
+
+
+            mid1 = (save[(save.size()-1)/2]);
+            mid2 = (save[save.size()/2]);
+
+                for(int j=0;j<save.size();j++)
+                {
+                     if(save[j]==mid1||save[j]==mid2)
+                     {
+                        cal++;
+                     }
+                }
+
+
+        cout<<mid1<<" "<<cal<<" "<<mid2-mid1+1<<endl;
+
+
+    }
+    return 0;
+}

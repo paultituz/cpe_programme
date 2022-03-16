@@ -1,0 +1,78 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+#include <string>
+#include <cmath>
+#include <iomanip>
+#include <map>
+//UVA10101 - Bangla Numbers
+using namespace std;
+
+int main()
+{
+    string in;
+    int cal=1;
+    while(cin>>in)
+    {
+        int si = in.size();
+        int singal=0;
+
+        cout<<cal<<". ";
+
+        for(int i=0;i<in.size();i++)
+        {
+
+            if(in[i]!='0'&&singal==1)
+            {
+                cout<<in[i];
+                singal=0;
+            }
+            else if(singal==0)
+            {
+                cout<<in[i];
+            }
+
+            if(si==8||si==15)
+            {
+                if(singal==0)
+                {
+                    cout<<" kuti ";
+                }
+                else
+                {
+                    cout<<"kuti ";
+                    singal=1;
+                }
+            }
+
+            else if(singal==0)
+            {
+                if(si==6||si==13)
+                {
+                    cout<<" lakh ";
+                    singal=1;
+                }
+                else if(si==4||si==11)
+                {
+                    cout<<" hajar ";
+                    singal=1;
+                }
+                else if(si==3||si==10)
+                {
+                    cout<<" shata ";
+                    singal=1;
+                }
+
+
+            }
+            si--;
+
+        }
+        cout<<endl;
+        cal++;
+    }
+
+    return 0;
+}

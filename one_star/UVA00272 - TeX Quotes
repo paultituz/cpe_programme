@@ -1,0 +1,50 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+//UVA00272 - TeX Quotes
+using namespace std;
+
+int main()
+{
+    string in;
+    int a=0;
+
+    while(getline(cin,in))
+    {
+
+        for(int i=0;i<in.size();i++)
+        {
+
+            if(in[i] == '\"')
+            {
+
+                if(a%2==0)
+                {
+                    cout<<"``";
+                }
+                else
+                {
+                    cout<<"''";
+
+                }
+                a++;
+            }
+
+            else
+            {
+                cout<<in[i];
+            }
+
+        }
+        cout<<endl;
+
+    }
+
+
+
+
+
+    return 0;
+}

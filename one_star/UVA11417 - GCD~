@@ -1,0 +1,55 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+#include <string>
+#include <cmath>
+#include <iomanip>
+#include <map>
+//UVA11417 - GCD
+using namespace std;
+
+
+int GCD(int x,int y)
+{
+    while((x=x%y) && (y=y%x));//分號
+    return x+y;
+}
+
+
+int main()
+{
+
+    int in;
+    int G;
+
+    while(cin>>in)
+    {
+
+        if (in == 0)
+        {
+            break;
+        }
+        else
+        {
+            G=0;
+            for(int i=1;i<in;i++)
+            {
+                for(int j=i+1;j<=in;j++)
+
+                {
+                    G=G+GCD(i,j);
+
+                }
+            }
+
+        cout<<G<<endl;
+        }
+
+
+    }
+    return 0;
+
+
+}

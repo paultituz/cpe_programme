@@ -1,0 +1,53 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+#include <string>
+#include <cmath>
+#include <iomanip>
+#include <map>
+//UVA10252 - Common Permutation
+using namespace std;
+
+int main()
+{
+    string a,b;
+    int counta[26],countb[26];
+    while(cin>>a>>b)
+    {
+
+        for(int i=0;i<26;i++)
+        {
+            counta[i] =0;
+            countb[i] =0;
+        }
+
+        for(int i=0;i<a.length();i++)
+        {
+            counta[a[i]-'a']++;
+        }
+
+        for(int i=0;i<b.length();i++)
+        {
+            countb[b[i]-'a']++;
+        }
+        
+        //for(int i=0;i<26;i++){countb[b[i]-'a']++;}
+        
+
+        for(int i=0;i<26;i++)
+        {
+            for(int j=min(counta[i],countb[i]);j>0;j--)
+            {
+                cout<<(char)('a'+i);
+            }
+
+        }
+        cout<<endl;
+
+    }
+
+
+    return 0;
+}

@@ -1,0 +1,71 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+#include <string>
+#include <cmath>
+#include <iomanip>
+//UVA10190 - Divide, But Not Quite Conquer
+using namespace std;
+
+
+int main()
+{
+    unsigned long long  int a,b;
+    while(cin>>a>>b)
+    {
+        vector<int>save;
+        int cal=-1;
+        save.push_back(a);
+
+        if(b==0||a==0)
+        {
+            cal=1;
+        }
+        else
+
+        {
+            while(a>1)
+        {
+            a=a/b;
+            save.push_back(a);
+        }
+
+        for(int i=0;i<save.size()-1;i++)
+        {
+            if(save[i]%b!=0)
+            {
+                cal=1;
+                break;
+            }
+            else
+            {
+                cal=0;
+            }
+        }
+
+
+        }
+
+
+        if(cal==0)
+        {
+            for(int i=0;i<save.size();i++)
+            {
+            cout<<save[i]<<" ";
+            }
+            cout<<endl;
+        }
+
+        else if(cal==1)
+        {
+            cout<<"Boring!"<<endl;
+        }
+
+
+
+    }
+
+    return 0;
+}

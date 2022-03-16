@@ -1,0 +1,85 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+#include <string>
+#include <cmath>
+#include <iomanip>
+#include <map>
+//UVA10415 - Eb Alto Saxophone Player
+using namespace std;
+
+
+int main()
+{
+    map<char,vector<int>> player;
+    player['c'] = {0,1,1,1,0,0,1,1,1,1};
+    player['d'] = {0,1,1,1,0,0,1,1,1,0};
+    player['e'] = {0,1,1,1,0,0,1,1,0,0};
+    player['f'] = {0,1,1,1,0,0,1,0,0,0};
+    player['g'] = {0,1,1,1,0,0,0,0,0,0};
+    player['a'] = {0,1,1,0,0,0,0,0,0,0};
+    player['b'] = {0,1,0,0,0,0,0,0,0,0};
+
+    player['C'] = {0,0,1,0,0,0,0,0,0,0};
+    player['D'] = {1,1,1,1,0,0,1,1,1,0};
+    player['E'] = {1,1,1,1,0,0,1,1,0,0};
+    player['F'] = {1,1,1,1,0,0,1,0,0,0};
+    player['G'] = {1,1,1,1,0,0,0,0,0,0};
+    player['A'] = {1,1,1,0,0,0,0,0,0,0};
+    player['B'] = {1,1,0,0,0,0,0,0,0,0};
+
+
+    string in;
+    int a;
+    cin>>a;
+    a=a+1;
+
+    while(a--)
+    {
+        getline(cin,in);
+        int cal[10]={0};
+        int now[10]={0};
+
+            for(int i=0;i<in.size();i++)
+            {
+                for(int j=0;j<10;j++)
+                {
+
+                    if(player[in[i]][j])
+                    {
+                        if(now[j]==1)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            now[j]=1;
+                            cal[j]++;
+                        }
+                    }
+
+                    else
+                    {
+                        now[j] = 0;
+                    }
+
+
+                }
+
+            }
+
+            for(int k=0;k<10;k++)
+                {
+                    cout<<cal[k]<<" ";
+                }
+                cout<<endl;
+
+    }
+
+
+
+    return 0;
+
+}

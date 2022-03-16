@@ -1,0 +1,122 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+//UVA00100 The 3n + 1 problem
+using namespace std;
+
+int main()
+{
+    int a,b;
+    while(cin>>a>>b)
+    {
+        int big=0;
+
+        if(a<b)
+        {
+            for(int i=a;i<b;i++)
+        {
+            int s=i;
+            int cal=1;
+            while(s!=1)
+            {
+                if(s%2!=0)
+                {
+                    s=3*s+1;
+                    cal++;
+                }
+                else
+                {
+                    s=s/2;
+                    cal++;
+                }
+            }
+
+            if(big>cal)
+            {
+                big=big;
+            }
+            else if(big<=cal)
+            {
+                big=cal;
+            }
+        }
+        }
+
+        else if (a==b)
+        {
+            int s=a;
+            int cal=1;
+            while(s!=1)
+            {
+                if(s%2!=0)
+                {
+                    s=3*s+1;
+                    cal++;
+                }
+                else
+                {
+                    s=s/2;
+                    cal++;
+                }
+            }
+
+            if(big>cal)
+            {
+                big=big;
+            }
+            else if(big<=cal)
+            {
+                big=cal;
+            }
+
+        }
+        else
+        {
+            for(int i=b;i<a;i++)
+        {
+            int s=i;
+            int cal=1;
+            while(s!=1)
+            {
+                if(s%2!=0)
+                {
+                    s=3*s+1;
+                    cal++;
+                }
+                else
+                {
+                    s=s/2;
+                    cal++;
+                }
+            }
+
+            if(big>cal)
+            {
+                big=big;
+            }
+            else if(big<=cal)
+            {
+                big=cal;
+            }
+        }
+
+        }
+
+
+        cout<<a<<" "<<b<<" "<<big<<endl;
+
+
+
+    }
+
+    return 0;
+}
+
+
+ /*for(int i=0;i<in.size();i++)
+        {
+            cout<<in[i]<<endl;
+        }
+*/

@@ -1,0 +1,79 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+#include <string>
+#include <cmath>
+#include <iomanip>
+#include <map>
+//UVA11349 - Symmetric Matrix
+using namespace std;
+
+int main()
+{
+
+    int in;
+    cin>>in;
+    int cal =1;
+
+
+    while(in--)
+    {
+        char inn,e;
+        int num=0;
+        int need = -1;
+        cin>>inn>>e>>num;
+
+        int allnum=0;
+        allnum = num*num;
+        vector<long long int> matrix;
+
+        for(int i=0;i<allnum;i++)
+        {
+            long long int a;
+            cin>>a;
+            matrix.push_back(a);
+        }
+
+        if(matrix.size()==1&&matrix[0]>=0)
+        {
+            need=0;
+        }
+        else if(matrix.size()==1&&matrix[0]<0)
+        {
+            need=1;
+        }
+
+        else
+        {
+            for(int i=0;i<allnum;i++)
+            {
+            if(matrix[i]!=matrix[allnum-i-1]||matrix[i]<0||matrix[allnum-i-1]<0)
+            {
+                need=1;
+                break;
+            }
+            else if(matrix[i]==matrix[allnum-i-1]&&(matrix[i]>=0&&matrix[allnum-i-1]>=0))
+            {
+                need=0;
+            }
+            }
+
+        }
+
+        if(need==0)
+        {
+             cout<<"Test #"<<cal<<": Symmetric."<<endl;
+        }
+
+        else if (need ==1)
+        {
+            cout<<"Test #"<<cal<<": Non-symmetric."<<endl;
+        }
+        cal++;
+        matrix.clear();
+    }
+   
+    return 0;
+}

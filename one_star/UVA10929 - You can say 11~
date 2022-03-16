@@ -1,0 +1,67 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+#include <string>
+#include <cmath>
+#include <iomanip>
+#include <map>
+//UVA10929 - You can say 11
+using namespace std;
+
+
+int main()
+{
+    string a;
+
+    while(cin>>a)
+    {
+        int si=0,mo=0,fin;
+
+        if(a.size()==1&&a[0]=='0')
+        {
+            break;
+        }
+        else
+        {
+            for(int i =0;i<a.size();i++)
+            {
+                if(i%2==0)
+                {
+                    mo = mo +a[i]-'0';
+                }
+                else
+                {
+                    si = si + a[i]-'0';
+                }
+            }
+
+            fin = mo-si;
+        
+
+            if(fin%11==0)
+            {
+                for(int i=0;i<a.size();i++)
+                {
+                    cout<<a[i];
+                }
+                cout<<" is a multiple of 11."<<endl;
+
+            }
+            else
+            {
+                for(int i=0;i<a.size();i++)
+                {
+                    cout<<a[i];
+                }
+                cout<<" is not a multiple of 11."<<endl;
+            }
+
+        }
+    }
+
+    return 0;
+
+
+}

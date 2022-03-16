@@ -1,0 +1,66 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+#include <string>
+//UVA10008 - What's Cryptanalysis
+using namespace std;
+
+int main()
+{
+    int in;
+    int mini=0;
+    cin>>in;
+    in=in+1;
+    char ch[26]={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+    int cal[26]={0};
+    while(in--)
+    {
+        string input;
+        getline(cin,input);
+
+        for(int i = 0;i<input.size();i++)
+        {
+            input[i]=toupper(input[i]);
+        }
+
+        for(int i = 0;i<26;i++)
+        {
+            int num=count(input.begin(),input.end(),65+i);
+            cal[i]=cal[i]+num;
+        }
+
+
+
+    }
+
+    for(int i = 0;i<26;i++)
+        {
+            if(cal[i]>mini)
+            {
+                mini = cal[i];
+            }
+        }
+
+    while(mini!=0)
+    {
+        for(int i=0;i<26;i++)
+        {
+            if(cal[i]==mini)
+            {
+                cout<<ch[i]<<" "<<cal[i]<<endl;
+            }
+        }
+        mini--;
+
+    }
+
+
+
+
+
+
+
+    return 0;
+}

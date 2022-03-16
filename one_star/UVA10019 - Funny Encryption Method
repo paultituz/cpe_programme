@@ -1,0 +1,81 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+#include <string>
+#include <cmath>
+//UVA10019 - Funny Encryption Method
+using namespace std;
+
+int main()
+{
+    int in;
+    cin>>in;
+
+    while(in--)
+    {
+        int input;
+        cin>>input;
+
+        vector<int>two;
+        int save = input;
+        while(save!=0)
+        {
+            if(save%2==0)
+            {
+                two.push_back(0);
+                save=save/2;
+            }
+            else
+            {
+                two.push_back(1);
+                save = save/2;
+            }
+
+        }
+
+        int savetwo = count(two.begin(),two.end(),1);
+
+       vector<int>sis;
+       int save1=input;
+       int s=0;
+
+       stringstream ss;
+
+       ss<<save1;
+       string save2;
+       ss>>save2;
+
+       int calt=0;
+
+       for(int i=save2.size()-1;i>=0;i--)
+       {
+           s=s+((save2[i]-'0')*pow(16,calt));
+           calt++;
+       }
+
+       while(s!=0)
+       {
+           if(s%2==0)
+            {
+                sis.push_back(0);
+                s=s/2;
+            }
+            else
+            {
+                sis.push_back(1);
+                s = s/2;
+            }
+       }
+
+       int save1two = count(sis.begin(),sis.end(),1);
+
+
+       cout<<savetwo<<" "<<save1two<<endl;
+
+
+    }
+
+    return 0;
+}

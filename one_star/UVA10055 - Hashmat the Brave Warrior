@@ -1,0 +1,29 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+#include <string>
+#include <cmath>
+//UVA10055 - Hashmat the Brave Warrior
+using namespace std;
+
+int main()
+{
+    long long int a,b;
+
+    while(cin>>a>>b)
+    {
+        long long int sum=0;
+
+        sum = abs(a-b);
+
+        cout<<sum<<endl;
+    }
+
+
+
+
+
+    return 0;
+}

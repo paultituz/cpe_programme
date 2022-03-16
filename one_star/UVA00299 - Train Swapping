@@ -1,0 +1,51 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+//UVA00299 - Train Swapping
+using namespace std;
+
+int main()
+{
+
+   int in;
+
+   cin>>in;
+   while(in--)
+   {
+       int num;
+       int cal=0;
+       cin>>num;
+       vector <int> sav;
+       for(int q=0;q<num;q++)
+       {
+           int a;
+           cin>>a;
+           sav.push_back(a);
+       }
+
+
+       for(int i=0;i<sav.size()-1;i++)
+       {
+
+           for(int j=0;j<(sav.size()-1)-i;j++)
+           {
+               int a=0;
+               if(sav[j]>sav[j+1])
+               {
+
+                   a=sav[j];
+                   sav[j]=sav[j+1];
+                   sav[j+1]=a;
+                   cal++;
+               }
+           }
+       }
+
+
+       cout<<"Optimal train swapping takes "<<cal<<" swaps."<<endl;
+   }
+
+    return 0;
+}

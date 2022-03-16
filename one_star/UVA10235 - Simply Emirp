@@ -1,0 +1,90 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+#include <string>
+#include <cmath>
+#include <iomanip>
+//UVA10235 - Simply Emirp
+using namespace std;
+
+
+int main()
+{
+   int a;
+
+   while(cin>>a)
+   {
+       int rev=0;
+       int rever=0;
+       int cal=0;
+
+       int re = a;
+           while(re!=0)
+           {
+               rever = re%10;
+               rev = (rev *10) + rever;
+               re = re/10;
+           }
+
+
+       for(int i=2;i<a-1;i++)
+       {
+           if(a%i==0)
+           {
+               cal=1;
+                break;
+           }
+           else
+           {
+               cal=0;
+           }
+       }
+
+      if(cal==0)
+      {
+          for(int i=2;i<rev-1;i++)
+            {
+                if(rev%i==0)
+           {
+                cal=3;
+                break;
+           }
+                    else
+           {
+               cal=4;
+           }
+
+            }
+
+      }
+
+
+
+
+
+       if(cal==4&&rev!=a)
+       {
+            cout<<a<<" is emirp."<<endl;
+       }
+
+       else if (cal==1)
+       {
+           cout<<a<<" is not prime."<<endl;
+       }
+
+       else if (cal==3||rev==a)
+           {
+               cout<<a<<" is prime."<<endl;
+           }
+
+
+
+
+   }
+
+
+    return 0;
+
+}

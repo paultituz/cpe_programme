@@ -1,0 +1,80 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <sstream>
+#include <ctype.h>
+#include <string>
+#include <cmath>
+#include <iomanip>
+#include <map>
+//UVA10409 - Die Game
+using namespace std;
+
+
+int main()
+{
+    int in;
+    string a;
+    while(cin>>in)
+    {
+         map<string,int>die;
+
+        die["top"]=1;
+        die["north"]=2;
+        die["west"]=3;
+        die["east"]=4;
+        die["south"]=5;
+        die["botton"]=6;
+
+        if(in==0){break;}
+
+        else
+        {
+            while(in--)
+            {
+                cin>>a;
+                if(a=="north")
+                {
+                    int temp = die["north"];
+                    die["north"]=die["top"];
+                    die["top"]=die["south"];
+                    die["south"]=die["botton"];
+                    die["botton"]=temp;
+                }
+
+                if(a=="south")
+                {
+                    int temp=die["south"];
+                    die["south"]=die["top"];
+                    die["top"]=die["north"];
+                    die["north"]=die["botton"];
+                    die["botton"]=temp;
+                }
+
+                if(a=="west")
+                {
+                    int temp = die["west"];
+                    die["west"]=die["top"];
+                    die["top"]=die["east"];
+                    die["east"]=die["botton"];
+                    die["botton"]=temp;
+                }
+
+                if(a=="east")
+                {
+                    int temp = die["east"];
+                    die["east"]=die["top"];
+                    die["top"]=die["west"];
+                    die["west"]=die["botton"];
+                    die["botton"]=temp;
+                }
+            }
+
+        }
+        cout<<die["top"]<<endl;
+
+    }
+    return 0;
+
+
+}
